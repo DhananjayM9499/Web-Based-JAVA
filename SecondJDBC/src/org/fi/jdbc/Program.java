@@ -9,12 +9,7 @@ import java.sql.Statement;
 import java.util.Properties;
 import java.util.Scanner;
 
-//1. Register User
-//2. Delete User
-//3. Change Password
-//4. Show user details
-//5. Update User
-//6. Exit
+
 
 public class Program
 {
