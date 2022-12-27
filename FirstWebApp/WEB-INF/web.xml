@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xml="http://www.w3.org/XML/1998/namespace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd ">
+
+<servlet>
+<servlet-name>First</servlet-name>
+<servlet-class>org.fi.web.TimeServlet</servlet-class> <!-- after the get method is called the object is instanshiated -->
+</servlet>
+
+<servlet-mapping>
+<servlet-name>First</servlet-name><!-- same as above -->
+<url-pattern>/GetTime</url-pattern> <!-- when client request for get time it goes to web server -->
+</servlet-mapping>
+
+
+
+</web-app>
