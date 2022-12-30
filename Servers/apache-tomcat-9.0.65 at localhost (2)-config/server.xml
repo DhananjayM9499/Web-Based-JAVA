@@ -152,7 +152,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="SecondWebApp" path="/SecondWebApp" reloadable="true" source="org.eclipse.jst.jee.server:SecondWebApp"/><Context docBase="ThirdWebServer" path="/ThirdWebServer" reloadable="true" source="org.eclipse.jst.jee.server:ThirdWebServer"/><Context docBase="OnlineShopping" path="/OnlineShopping" reloadable="true" source="org.eclipse.jst.jee.server:OnlineShopping"/><Context docBase="WebFundamentals" path="/WebFundamentals" reloadable="true" source="org.eclipse.jst.jee.server:WebFundamentals"/></Host>
+      <Context docBase="SecondWebApp" path="/SecondWebApp" reloadable="true" source="org.eclipse.jst.jee.server:SecondWebApp"/><Context docBase="ThirdWebServer" path="/ThirdWebServer" reloadable="true" source="org.eclipse.jst.jee.server:ThirdWebServer"/><Context docBase="OnlineShopping" path="/OnlineShopping" reloadable="true" source="org.eclipse.jst.jee.server:OnlineShopping"/><Context docBase="WebFundamentals" path="/WebFundamentals" reloadable="true" source="org.eclipse.jst.jee.server:WebFundamentals"/><Context docBase="AssignmentOnlineShoping" path="/AssignmentOnlineShoping1" reloadable="true" source="org.eclipse.jst.jee.server:AssignmentOnlineShoping"/><Context docBase="FirstJspApp" path="/FirstJspApp" reloadable="true" source="org.eclipse.jst.jee.server:FirstJspApp"/></Host>
     </Engine>
   </Service>
 </Server>
