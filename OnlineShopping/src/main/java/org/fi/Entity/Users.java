@@ -1,4 +1,4 @@
-package org.fi.secondhybernateapp.entity;
+package org.fi.Entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

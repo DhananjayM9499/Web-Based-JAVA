@@ -1,5 +1,4 @@
-package org.fi.shopping.servlets;
-
+package org.fi.secondhybernateapp.entity;
 import java.io.IOException;
 
 import javax.servlet.ServletContext;
@@ -9,10 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.catalina.Session;
-import org.fi.Entity.Users;
-
-import com.mysql.cj.xdevapi.SessionFactory;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 
 /**
  * Servlet implementation class Authenticate
