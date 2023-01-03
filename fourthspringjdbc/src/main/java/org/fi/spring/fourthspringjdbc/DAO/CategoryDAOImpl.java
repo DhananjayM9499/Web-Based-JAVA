@@ -43,7 +43,7 @@ public boolean addCategory(Category objcategory) {
 
 @Override
 public List<Category>getAllCategories(){
-	return null;
+	return jdbcTemplate.query(sqlAllCategories, new CategoryMapper());
 }
 
 @Override

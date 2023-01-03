@@ -1,5 +1,6 @@
 package org.fi.spring.fourthspringjdbc;
 
+import java.util.List;
 import java.util.Scanner;
 
 import org.fi.spring.fourthspringjdbc.DAO.CategoryDAO;
@@ -32,6 +33,16 @@ public class App {
 			objCategory.setCategoryImageUrl(catImage);
 			daoCategory.addCategory(objCategory);
 			System.out.println("Record Saved....!");
+			
+			List<Category> list = daoCategory.getAllCategories();
+			for(Category objShowCategory:list) {
+				System.out.println(objShowCategory.getCategoryId());
+				System.out.println(objShowCategory.getCategoryName());
+				System.out.println(objShowCategory.getCategoryDescription());
+				System.out.println(objShowCategory.getCategoryImageUrl());
+				System.out.println("------------------------------------");
+				
+			}
 		}
 
 	}
