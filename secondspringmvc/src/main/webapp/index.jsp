@@ -1,5 +1,7 @@
 <html>
 <body>
-<a href ='spring/login'>Login</a>
+<%
+response.sendRedirect("spring/login");
+%>
 </body>
 </html>
