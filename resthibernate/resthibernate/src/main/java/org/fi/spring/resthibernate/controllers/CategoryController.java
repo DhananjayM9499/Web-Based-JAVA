@@ -1,13 +1,14 @@
 package org.fi.spring.resthibernate.controllers;
 
 import java.io.Serializable;
-
-import javax.persistence.EntityNotFoundException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Optional;
 
 import org.fi.spring.resthibernate.dto.CategoryDTO;
 import org.fi.spring.resthibernate.entity.Category;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+import org.fi.spring.resthibernate.repository.CategoryRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,32 +22,44 @@ import org.springframework.web.bind.annotation.RestController;
 public class CategoryController 
 {
 @Autowired
-SessionFactory hibernateFactory;
+CategoryRepository repositoryCategory;
 @PostMapping("/newCategory")
 public Serializable addNew(@RequestBody CategoryDTO objCategory)
 {
 	Category entityCategory = new Category();
 	BeanUtils.copyProperties(objCategory, entityCategory);
-	try(Session hibernateSession = hibernateFactory.openSession())
-	{
-		hibernateSession.beginTransaction();
-		Serializable id = hibernateSession.save(entityCategory);
-		hibernateSession.getTransaction().commit();
-		return id;
+	
+		return repositoryCategory.save(entityCategory).getCategoryId();
 	}
-}
+
 @GetMapping("/get/{cid}")
 public CategoryDTO
 getCategory(@PathVariable("cid")int categoryId)
 {
-	try(Session hibernateSession = hibernateFactory.openSession())
-	{
-		Category entitycCategory=(Category)hibernateSession.load(Category.class, categoryId);
+	Optional<Category>optCategory = repositoryCategory.findById(categoryId);
+	if(optCategory.isPresent()) {
+	
+		Category entityCategory=optCategory.get();
 		CategoryDTO dto = new CategoryDTO();
-		BeanUtils.copyProperties(entitycCategory, dto);
+		BeanUtils.copyProperties(entityCategory, dto);
 		return dto;
-	}catch(EntityNotFoundException hbe) {
-		return null;
 	}
+	return null;
 }
+@GetMapping("/getAll")
+public List<CategoryDTO> getCategory(){
+	Iterator<Category>iter=repositoryCategory.findAll().iterator();
+	ArrayList<CategoryDTO> list = new ArrayList<>();
+	while(iter.hasNext())
+	{
+		Category entityCategory = iter.next();
+		CategoryDTO dto = new CategoryDTO();
+		BeanUtils.copyProperties(entityCategory, dto);
+		list.add(dto);
+	}
+	return list;
+}
+
+
+
 }
